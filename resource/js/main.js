@@ -15,6 +15,7 @@ define(function(require){
 		{src: 'resource/images/title.png'}
 	]);
 	loader.on('progress', function(e){
+		//TODO: 根据百分比来判断显示的载入图片
 		if(e.loadedCount < 10){
 			$('section.load .imgbox img').attr('src', 'resource/images/load_' + e.loadedCount + ".png");
 		}
@@ -28,6 +29,7 @@ define(function(require){
 		$('section.load .imgbox img').attr('src', 'resource/images/load_' + (count++) + ".png");
 		if(count > 9){
 			clearInterval(timer);
+			//$('section.load .loadbar').hide();
 		}
 	}, 200);
 });
