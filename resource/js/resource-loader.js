@@ -1,10 +1,87 @@
 define('resource-loader', function(require, exports, module){
 	var tools = require('./tools');
-	//资源载入器
-	var resourceLoader = {
-		totalCount: 0,
-		loadedCount: 0,
-		resources: {},
+	var EventEmitter = tools.EventEmitter;
+
+	var ResourceLoader = function(options){
+		this._initResourceLoader(options);
+	};
+	ResourceLoader.prototype = {
+		_initResourceLoader: function(options){
+			this.options = tools.mix({
+				maxConnections: 4
+			}, options);
+			EventEmitter.call(this);
+
+			this.totalCount = 0;
+			this.loadedCount = 0;
+			this.resources = {};
+			this.loading = 0;
+			this.unloadResources = [];
+		},
+		/**
+		 * [{name: '', type: '', src: ''}]
+		 */
+		load: function(resources){
+
+			this.unloadResources = resources;
+			this.totalCount += resources.length;
+			var self = this;
+			this.execQueue();
+		},
+		execQueue: function(){
+			while(this.loading <= this.options.maxConnections && this.unloadResources.length > 0){
+				var res = this.unloadResources.shift();
+				(!!res.type) || (res.type = 'image');
+				switch(res.type){
+					case 'image':
+						this.loadImage(res);
+						break;
+					case 'tmx': 
+						break;
+					case 'audio':
+						break;
+					case 'json': 
+						break;
+					default:
+						break;
+				}
+			}
+		},
+		loadPerResource: function(target){
+			var self = this;
+			self.emit('progress',{
+				loadedCount: self.loadedCount, 
+				totalCount: self.totalCount,
+				target: target 
+			});
+			this.loading--;
+
+			if(self.totalCount === self.loadedCount){
+				self.emit('load', {totalCount: self.totalCount});
+			}else{
+				self.execQueue();
+			}
+		},
+		loadImage: function(resource){
+			var self = this;
+			var img = new Image();
+			img.onload = function(){
+				++self.loadedCount;
+				if(resource.name){
+					self.resources[resource.name] = this;
+				}
+				self.loadPerResource(this);
+			};
+			
+			img.onerror = function(){
+				++self.loadedCount;
+				self.loadPerResource(this);
+				console.log('Error on: ' + this.dataName);
+			};
+			
+			img.src = resource.src;
+			this.loading++;
+		},
 		get: function(name){
 			if(this.resources[name] !== undefined){
 				return this.resources[name];
@@ -12,107 +89,9 @@ define('resource-loader', function(require, exports, module){
 				console.log('Error on get resource: ' + name);
 				return false;
 			}
-		},
-		load: function(resources){
-			this.totalCount = resources.length;
-			var self = this;
-			for(var i = 0, len = resources.length; i < len; i++){
-				switch(resources[i].type){
-					case 'image':{
-						this.loadImage(resources[i]);
-						break;
-					}
-	
-					case 'tmx':{
-						this.loadXML(resources[i]);
-						break;
-					}
-	
-					case 'audio':{
-						break;
-					}
-					
-					case 'json': {
-						this.loadJSON(resources[i]);
-						break;
-					}
-					default:
-						break;
-				}
-			};
-		},
-	
-		loadImage: function(resource){
-			var self = this;
-			var img = new Image();
-			img.dataName =resource.name;
-			img.onload = function(){
-				++self.loadedCount;
-				self.onProgress({loadedCount: self.loadedCount, totalCount: self.totalCount});
-				self.resources[this.dataName] = this;
-				if(self.totalCount === self.loadedCount){
-					self.onComplete();
-				}
-			};
-			
-			img.onerror = function(){
-				console.log('Error on: ' + this.dataName);
-			};
-			
-			img.src = resource.src;
-		},
-		
-		loadXML: function(resource){
-			var self = this;
-			
-			$.ajax({
-				url: resource.src,
-				dataType: 'xml',
-				success: function(rep, statusText, xhr){
-					++self.loadedCount;
-					self.resources[resource.name] = rep;
-					self.onProgress({loadedCount: self.loadedCount, totalCount: self.totalCount});
-	
-					if(self.totalCount === self.loadedCount){
-						self.onComplete();
-					}
-				},
-				error: function(statusText){
-					console.log('Error on: ' + statusText);
-				}
-			});
-	
-		},
-		
-		loadJSON: function(resource){
-			var self = this;
-			
-			$.ajax({
-				url: resource.src,
-				dataType: 'json',
-				success: function(rep, statusText, xhr){
-					++self.loadedCount;
-					self.resources[resource.name] = rep;
-					self.onProgress({loadedCount: self.loadedCount, totalCount: self.totalCount});
-	
-					if(self.totalCount === self.loadedCount){
-						self.onComplete();
-					}
-				},
-				error: function(statusText){
-					console.log('Error on: ' + statusText);
-				}
-			});
-		},
-	
-		loadAudio: function(){
-	
-		},
-	
-		onProgress: function(event){},
-		
-		onComplete: function(){}
+		}
 	};
+	tools.extend(ResourceLoader, EventEmitter);
 	
-	module.exports = resourceLoader;
+	module.exports = ResourceLoader;
 });
