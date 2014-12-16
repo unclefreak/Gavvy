@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, width=640">
+    <title>index</title>
+
+
+    <link href="resource/css/index.css" rel="stylesheet" type="text/css" />
+    <script src="resource/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<div class="mc_container">
+	<header class="page"></header>
+	<section class="load">
+		<div class="imgbox">
+			<img src="resource/images/load_1.png">
+		</div>
+		<div class="loadbar">
+			<i></i><i></i><i></i><i></i><i></i>
+			<span>超频中，请稍后...</span>
+		</div>	
+	</section>
+</div>
+<script src="resource/js/sea.js"></script>
+<script type="text/javascript">
+	seajs.use('./resource/js/resource-loader', function(tools){
+		console.log(tools);
+	});
+</script>
+</body>
+</html>
