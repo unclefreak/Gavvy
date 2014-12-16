@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "黑体", "Hiragino Sans GB" !important;
+}
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p,
+input,
+button,
+table,
+tr,
+th,
+td,
+thead,
+tbody,
+pre {
+  padding: 0;
+  margin: 0;
+}
+strong {
+  font-weight: bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+blockquote,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+em,
+cite,
+i {
+  font-style: normal;
+}
+img {
+  border: none;
+}
+.abs {
+  position: absolute;
+}
+.rel {
+  position: relative;
+}
+.noborder {
+  border: 0 none !important;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clear {
+  *zoom: 1;
+}
+.clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+@-webkit-keyframes bgframe {
+  from {
+    background-position: center 0;
+  }
+  to {
+    background-position: center -30px;
+  }
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+.mc_container {
+  margin: 0 auto;
+  background: url(../images/background.jpg);
+  width: 640px;
+  height: 100%;
+  -webkit-animation: bgframe 5s ease-in-out infinite alternate;
+}
+.mc_container header.page {
+  height: 134px;
+  background: url(../images/title.png);
+}
+.mc_container section.load {
+  position: relative;
+}
+.mc_container section.load .loadbar {
+  position: absolute;
+  left: 460px;
+  top: 390px;
+}
+.mc_container section.load .loadbar span {
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 140px;
+}
+.loadbar {
+  position: relative;
+  width: 100px;
+  height: 16px;
+}
+.loadbar i {
+  width: 12px;
+  height: 12px;
+  display: block;
+  margin-right: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-animation-name: bounce_squaresWaveG;
+  -webkit-animation-duration: 2.4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  float: left;
+}
+.loadbar i:nth-child(1) {
+  -webkit-animation-delay: 0.96s;
+}
+.loadbar i:nth-child(2) {
+  -webkit-animation-delay: 1.2s;
+}
+.loadbar i:nth-child(3) {
+  -webkit-animation-delay: 1.44s;
+}
+.loadbar i:nth-child(4) {
+  -webkit-animation-delay: 1.68s;
+}
+.loadbar i:nth-child(5) {
+  -webkit-animation-delay: 1.92s;
+}
+@-webkit-keyframes bounce_squaresWaveG {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
