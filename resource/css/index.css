@@ -113,7 +113,6 @@ body {
 }
 .mc_container section.load {
   position: relative;
-  display: none;
 }
 .mc_container section.load .loadbar {
   position: absolute;
@@ -132,6 +131,7 @@ body {
   height: 698px;
   position: relative;
   overflow: hidden;
+  display: none;
 }
 .mc_container section.scene_1 .chips {
   width: 287px;

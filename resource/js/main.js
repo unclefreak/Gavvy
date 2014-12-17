@@ -19,7 +19,7 @@ define(function(require){
 	loader.on('progress', function(e){
 		//TODO: 根据百分比来判断显示的载入图片
 		if(e.loadedCount < 10){
-			$('section.load .imgbox img').attr('src', 'resource/images/load_' + e.loadedCount + ".png");
+			//$('section.load .imgbox img').attr('src', 'resource/images/load_' + e.loadedCount + ".png");
 		}
 	});
 	loader.on('load', function(e){
@@ -32,6 +32,8 @@ define(function(require){
 		if(count > 9){
 			clearInterval(timer);
 			//$('section.load .loadbar').hide();
+			$('section.load').hide();
+			$('section.scene_1').show();
 		}
 	}, 200);
 	var step = 0;
