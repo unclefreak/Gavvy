@@ -32,4 +32,17 @@ define(function(require){
 			//$('section.load .loadbar').hide();
 		}
 	}, 200);
+	$('.scene_1').click(function(){
+		$('.tablet_top').addClass('end');
+		$('.tablet_bottom').addClass('end');
+		//$('.tablet_bottom').animate({left: -500, top: 865});
+		setTimeout(function(){
+			$('.screen').addClass('shine');
+			setTimeout(function(){
+				$(".screen").hide();
+				$('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
+				$('.tablet_top').addClass('glur');
+			}, 1500);
+		}, 2000);
+	})
 });

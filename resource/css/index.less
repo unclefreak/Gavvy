@@ -7,6 +7,20 @@
     background-position:center -30px;
   }
 }
+@-webkit-keyframes shinetwice {
+  0%{
+    opacity: 1;
+  }
+  30%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 html{
   height: 100%;
 }
@@ -34,6 +48,55 @@ body{
         top:20px;
         left:0;
         width:140px;
+      }
+    }
+    .hidden;
+  }
+  section.scene_1{
+    .rect(640px, 698px);
+    .rel;
+    overflow: hidden;
+    .tablet_top{
+      .rect(510px, 160px);
+      background: url(../images/tablet_top.png);
+      background-size: 100% 100%;
+      .abs;
+      .pos(116px, 135px);
+      -webkit-transition: all 2s;
+      &.end{
+        .pos(66px, 275px);
+        -webkit-transform: scale3d(1.2,1.2,1) translate3d();
+      }
+      &.glur{
+        -webkit-transform: scale3d(5, 5, 1);
+        top: 430px;
+      }
+      .screen{
+        .rect(510px, 160px);
+        .abs;
+        .pos(0, 0);
+        background: url(../images/tablet_top_screen.png);
+        &.shine{
+          -webkit-animation: shinetwice 1.5s;
+        }
+      }
+      .chips{
+        .rect(510px, 160px);
+        .abs;
+        .pos(0, 0);
+        background: url(../images/chips.png) center center no-repeat;
+        -webkit-transform: scale3d(.2, .2, 1);
+      }
+    }
+    .tablet_bottom{
+      .rect(510px, 160px);
+      background: url(../images/tablet_bottom.png);
+      .abs;
+      .pos(11px, 258px);
+      -webkit-transition: all 2s;
+      &.end{
+        //.pos(-500px, 865px);
+        -webkit-transform: translate3d(-511px, 607px, 0);
       }
     }
   }
