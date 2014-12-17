@@ -50,13 +50,13 @@ body{
         width:140px;
       }
     }
-    //.hidden;
+    .hidden;
   }
   section.scene_1{
     .rect(640px, 698px);
     .rel;
     overflow: hidden;
-    .hidden;
+    //.hidden;
     //background: url(../images/bg_7.png);
     .chips{
       .rect(287px, 70px);
@@ -78,6 +78,46 @@ body{
       .rect(593px, 150px);
       .abs;
       .pos(22px, 507px);
+      .chips_1{
+        .rect(282px, 77px);
+        .abs;
+        .pos(225px, 34px);
+        background: url(../images/chips_1.png);
+        &.up{
+          .pos(225px, -86px);
+          >.light{
+            .block;
+          }
+        }
+        >.light{
+          .rect(282px, 189px);
+          background:url(../images/chips_1_light.png);
+          .hidden;
+        }
+        >.shadow{
+          .rect(124px, 37px);
+          .abs;
+          .pos(120px, 9px);
+          background: url(../images/chips_2_shadow.png);
+        }
+        .chips_2{
+          .rect(124px, 57px);
+          .abs;
+          .pos(120px, 0px);
+          background: url(../images/chips_2.png);
+          &.up{
+            .pos(120px, -64px);
+            >.light{
+              .block;
+            }
+          }
+           >.light{
+            .rect(124px, 109px);
+            background:url(../images/chips_2_light.png);
+            .hidden;
+          }
+        }
+      }
     }
     .feature_1{
       .rect(640px, 486px);
@@ -115,6 +155,78 @@ body{
         }
       }
     }
+    .feature_2{
+      .rect(640px, 398px);
+      overflow: hidden;
+      .rel;
+       p{
+        .abs;
+        -webkit-transition: all .3s;
+      }
+      .f1{
+        .rect(350px, 168px);
+        .pos(66px, 398px);
+        background: url(../images/f_2_1.png);
+        &.end{
+          -webkit-transform: translate3d(0, -272px, 0);
+        }
+      }
+     .f2{
+        .rect(0px, 104px);
+        .pos(66px, 294px);
+        background: url(../images/f_2_2.png);
+        //-webkit-transform: scale3d(0, 1, 1);
+        &.end{
+          //-webkit-transform: scale3d(1, 1, 1);
+          //-webkit-transform: translate3d(0, -78px, 0);
+          .rect(378px, 104px);
+        }
+      }
+      .f3{
+        .rect(121px, 190px);
+        .pos(449px, 398px);
+        background: url(../images/f_2_3.png);
+        &.end{
+          -webkit-transform: translate3d(0, -190px, 0);
+        }
+      }
+    }
+    .feature_3{
+      .rect(640px, 336px);
+      overflow: hidden;
+      .rel;
+       p{
+        .abs;
+        -webkit-transition: all .3s;
+      }
+      .f1{
+        .rect(264px, 154px);
+        .pos(66px, 336px);
+        background: url(../images/f_3_1.png);
+        &.end{
+          -webkit-transform: translate3d(0, -274px, 0);
+        }
+      }
+     .f2{
+        .rect(0px, 103px);
+        .pos(66px, 234px);
+        background: url(../images/f_3_2.png);
+        //-webkit-transform: scale3d(0, 1, 1);
+        &.end{
+          //-webkit-transform: scale3d(1, 1, 1);
+          //-webkit-transform: translate3d(0, -78px, 0);
+          .rect(351px, 103px);
+        }
+      }
+      .f3{
+        .rect(98px, 126px);
+        .pos(445px, 336px);
+        background: url(../images/f_3_3.png);
+        &.end{
+          -webkit-transform: translate3d(0, -126px, 0);
+        }
+      }
+    }
     .tablet_top{
       .rect(510px, 160px);
       background: url(../images/tablet_top.png);
@@ -122,6 +234,7 @@ body{
       .abs;
       .pos(116px, 135px);
       //-webkit-transition: all 2s;
+      .hidden;
       &.end{
         -webkit-transform: scale3d(1.2,1.2,1) translate3d(-45px, 116px, 0);
       }
@@ -151,6 +264,7 @@ body{
       .abs;
       .pos(11px, 258px);
       -webkit-transition: all 2s;
+      .hidden;
       &.end{
         //.pos(-500px, 865px);
         -webkit-transform: translate3d(-511px, 607px, 0);

@@ -82,6 +82,8 @@ define(function(require){
 					$('.feature_1 .f1').addClass('end');
 					$('.feature_1 .f2').addClass('end');
 					$('.feature_1 .f3').addClass('end');
+					$('.feature_2 p').addClass('end');
+					$('.feature_3 p').addClass('end');
 				});
 		}
 		
