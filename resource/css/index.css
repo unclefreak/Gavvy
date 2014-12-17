@@ -140,13 +140,64 @@ body {
   left: 192px;
   top: 310px;
   background: url(../images/chips.png) center center no-repeat;
+  background-size: 100% 100%;
   -webkit-transform: scale3d(0.29, 0.29, 1);
   display: none;
 }
 .mc_container section.scene_1 .chips.step1 {
-  left: 182px;
-  top: 480px;
-  -webkit-transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1, 1, 1) translate3d(-10px, 170px, 0);
+}
+.mc_container section.scene_1 .chips.step2 {
+  -webkit-transform: scale(2.1, 2.1) translate3d(-9px, 113px, 0px);
+}
+.mc_container section.scene_1 .chips_big {
+  background: url(../images/chips_big.png);
+  width: 593px;
+  height: 150px;
+  position: absolute;
+  left: 22px;
+  top: 507px;
+}
+.mc_container section.scene_1 .feature_1 {
+  width: 640px;
+  height: 486px;
+  overflow: hidden;
+  position: relative;
+}
+.mc_container section.scene_1 .feature_1 p {
+  position: absolute;
+  -webkit-transition: all .3s;
+}
+.mc_container section.scene_1 .feature_1 .f1 {
+  width: 160px;
+  height: 164px;
+  left: 66px;
+  top: 486px;
+  background: url(../images/f_1_1.png);
+}
+.mc_container section.scene_1 .feature_1 .f1.end {
+  -webkit-transform: translate3d(0, -242px, 0);
+}
+.mc_container section.scene_1 .feature_1 .f2 {
+  width: 0px;
+  height: 78px;
+  left: 66px;
+  top: 408px;
+  background: url(../images/f_1_2.png);
+}
+.mc_container section.scene_1 .feature_1 .f2.end {
+  width: 283px;
+  height: 78px;
+}
+.mc_container section.scene_1 .feature_1 .f3 {
+  width: 184px;
+  height: 110px;
+  left: 373px;
+  top: 486px;
+  background: url(../images/f_1_3.png);
+}
+.mc_container section.scene_1 .feature_1 .f3.end {
+  -webkit-transform: translate3d(0, -110px, 0);
 }
 .mc_container section.scene_1 .tablet_top {
   width: 510px;

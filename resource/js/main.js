@@ -35,7 +35,12 @@ define(function(require){
 		}
 	}, 200);
 	var step = 0;
+	var isAnimating = false;
 	$('.scene_1').click(function(){
+		if(isAnimating){
+			return;
+		}
+		isAnimating = true;
 		step++;
 		switch(step){
 			case 1:
@@ -52,15 +57,30 @@ define(function(require){
 										.duration('.5s')
 										.pop()
 									.pop()
-								.end();
+								.end(function(){
+									isAnimating = false;
+									
+								});
 				});
 				move('.tablet_bottom').translate(-511, 607).duration('1s').end();
 				break;
 			case 2:
 				$('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
 				move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
-				move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end();
+				move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
+					isAnimating = false;
+					$('.tablet_top, .tablet_bottom').hide();
+				});
 				break;
+			case 3: 
+				move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
+					isAnimating = false;
+
+					$('.chips').addClass('chips_big').removeClass('chips').removeAttr('style');
+					$('.feature_1 .f1').addClass('end');
+					$('.feature_1 .f2').addClass('end');
+					$('.feature_1 .f3').addClass('end');
+				});
 		}
 		
 		return;
