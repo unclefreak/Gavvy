@@ -56,20 +56,36 @@ body{
     .rect(640px, 698px);
     .rel;
     overflow: hidden;
+    .chips{
+      .rect(287px, 70px);
+      .abs;
+      .pos(192px, 310px);
+      background: url(../images/chips.png) center center no-repeat;
+      -webkit-transform: scale3d(.29, .29, 1);
+      .hidden;
+      &.step1{
+        .pos(182px, 480px);
+        -webkit-transform: scale3d(1, 1, 1);
+      }
+    }
     .tablet_top{
       .rect(510px, 160px);
       background: url(../images/tablet_top.png);
       background-size: 100% 100%;
       .abs;
       .pos(116px, 135px);
-      -webkit-transition: all 2s;
+      //-webkit-transition: all 2s;
       &.end{
-        .pos(66px, 275px);
-        -webkit-transform: scale3d(1.2,1.2,1) translate3d();
+        -webkit-transform: scale3d(1.2,1.2,1) translate3d(-45px, 116px, 0);
       }
       &.glur{
-        -webkit-transform: scale3d(5, 5, 1);
-        top: 430px;
+        -webkit-transform: scale3d(4, 4, 1)  translate3d(0, 92px, 0);
+        opacity: 0;
+        background: url(../images/glur.png);
+        background-size:100% 100%; 
+        .screen{
+          .hidden;
+        }
       }
       .screen{
         .rect(510px, 160px);
@@ -80,13 +96,7 @@ body{
           -webkit-animation: shinetwice 1.5s;
         }
       }
-      .chips{
-        .rect(510px, 160px);
-        .abs;
-        .pos(0, 0);
-        background: url(../images/chips.png) center center no-repeat;
-        -webkit-transform: scale3d(.2, .2, 1);
-      }
+      
     }
     .tablet_bottom{
       .rect(510px, 160px);

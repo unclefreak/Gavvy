@@ -1,6 +1,8 @@
 define(function(require){
 	var RLoader = require('./resource-loader');
 	var loader = new RLoader();
+	var move = require('./move');
+	console.log(move);
 	loader.load([
 		{src: 'resource/images/background.jpg'},
 		{src: 'resource/images/load_1.png'},
@@ -32,17 +34,35 @@ define(function(require){
 			//$('section.load .loadbar').hide();
 		}
 	}, 200);
+	var step = 0;
 	$('.scene_1').click(function(){
-		$('.tablet_top').addClass('end');
-		$('.tablet_bottom').addClass('end');
-		//$('.tablet_bottom').animate({left: -500, top: 865});
-		setTimeout(function(){
-			$('.screen').addClass('shine');
-			setTimeout(function(){
-				$(".screen").hide();
+		step++;
+		switch(step){
+			case 1:
+				move('.tablet_top').scale(1.2, 1.2).translate(-45, 116).duration('1s').end(function(){
+					$('.chips').show();
+					move(".screen")
+						.set('opacity', 0)
+						.duration('.5s')
+							.then()
+								.set('opacity', 1)
+								.duration('.5s')
+									.then()
+										.set('opacity', 0)
+										.duration('.5s')
+										.pop()
+									.pop()
+								.end();
+				});
+				move('.tablet_bottom').translate(-511, 607).duration('1s').end();
+				break;
+			case 2:
 				$('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
-				$('.tablet_top').addClass('glur');
-			}, 1500);
-		}, 2000);
+				move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
+				move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end();
+				break;
+		}
+		
+		return;
 	})
 });

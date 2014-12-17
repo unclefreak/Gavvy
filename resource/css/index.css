@@ -133,6 +133,21 @@ body {
   position: relative;
   overflow: hidden;
 }
+.mc_container section.scene_1 .chips {
+  width: 287px;
+  height: 70px;
+  position: absolute;
+  left: 192px;
+  top: 310px;
+  background: url(../images/chips.png) center center no-repeat;
+  -webkit-transform: scale3d(0.29, 0.29, 1);
+  display: none;
+}
+.mc_container section.scene_1 .chips.step1 {
+  left: 182px;
+  top: 480px;
+  -webkit-transform: scale3d(1, 1, 1);
+}
 .mc_container section.scene_1 .tablet_top {
   width: 510px;
   height: 160px;
@@ -141,16 +156,18 @@ body {
   position: absolute;
   left: 116px;
   top: 135px;
-  -webkit-transition: all 2s;
 }
 .mc_container section.scene_1 .tablet_top.end {
-  left: 66px;
-  top: 275px;
-  -webkit-transform: scale3d(1.2, 1.2, 1) translate3d();
+  -webkit-transform: scale3d(1.2, 1.2, 1) translate3d(-45px, 116px, 0);
 }
 .mc_container section.scene_1 .tablet_top.glur {
-  -webkit-transform: scale3d(5, 5, 1);
-  top: 430px;
+  -webkit-transform: scale3d(4, 4, 1) translate3d(0, 92px, 0);
+  opacity: 0;
+  background: url(../images/glur.png);
+  background-size: 100% 100%;
+}
+.mc_container section.scene_1 .tablet_top.glur .screen {
+  display: none;
 }
 .mc_container section.scene_1 .tablet_top .screen {
   width: 510px;
@@ -162,15 +179,6 @@ body {
 }
 .mc_container section.scene_1 .tablet_top .screen.shine {
   -webkit-animation: shinetwice 1.5s;
-}
-.mc_container section.scene_1 .tablet_top .chips {
-  width: 510px;
-  height: 160px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: url(../images/chips.png) center center no-repeat;
-  -webkit-transform: scale3d(0.2, 0.2, 1);
 }
 .mc_container section.scene_1 .tablet_bottom {
   width: 510px;
