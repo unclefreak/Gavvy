@@ -244,6 +244,9 @@ define(function(require){
         swipeInfo.endY = touch.clientY;
         var diffY = swipeInfo.endY - swipeInfo.startY;
         //console.log(swipeInfo.endY - swipeInfo.startY, swipeInfo.endX - swipeInfo.startX);
+        if(Math.abs(diffY) < 10){
+        	return;
+        }
         if(diffY > 0){
             //Swipe down
         }else{
