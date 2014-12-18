@@ -105,7 +105,7 @@ body {
   background: url(../images/background.jpg);
   width: 640px;
   height: 100%;
-  -webkit-animation: bgframe 5s ease-in-out infinite alternate;
+  -webkit-animation: bgframe 3s linear infinite alternate;
   overflow: hidden;
 }
 .mc_container header.page {
