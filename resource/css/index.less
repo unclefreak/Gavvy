@@ -50,13 +50,13 @@ body{
         width:140px;
       }
     }
-    .hidden;
+    //.hidden;
   }
   section.scene_1{
     .rect(640px, 698px);
     .rel;
     overflow: hidden;
-    //.hidden;
+    .hidden;
     //background: url(../images/bg_7.png);
     .chips{
       .rect(287px, 70px);
@@ -73,6 +73,76 @@ body{
         -webkit-transform: scale(2.1, 2.1) translate3d(-9px, 113px, 0px);
       }
     }
+    .chips_big_box{
+      .rect(593px, 150px);
+      .abs;
+      .pos(22px, 507px);
+      .hidden;
+      .chips_big{
+        background: url(../images/chips_big.png);
+        .rect(593px, 150px);
+        &.split{
+          background: url(../images/chips_big_1.png);
+        }
+      }
+      .chips_1_box{
+        .rect(282px, 77px);
+        .abs;
+        .pos(225px, 34px);
+        .hidden;
+        &.up{
+          -webkit-transform: translate3d(0, -86px, 0);
+          .chips_1>.light{
+            .block;
+          }
+        }
+        .chips_1{
+          .rect(282px, 77px);
+          background: url(../images/chips_1.png);
+          >.light{
+            //.rect(282px, 189px);
+            .rect(282px, 0px);
+            background:url(../images/chips_1_light.png) top center;
+            //.hidden;
+          }
+
+        }
+        .chips_2_box{
+          .rect(124px, 57px);
+          .abs;
+          .pos(120px, 0px);
+          .hidden;
+          .chips_2{
+            .rect(124px, 57px);
+            background: url(../images/chips_2.png);
+            >.light{
+              //.rect(124px, 109px);
+              .rect(124px, 0px);
+              background:url(../images/chips_2_light.png);
+            }
+          }
+          >.shadow{
+            .rect(124px, 37px);
+            .abs;
+            .pos(0px, 9px);
+            background: url(../images/chips_2_shadow.png);
+          }
+          &.up{
+            .chips_2{
+              //.pos(120px, -64px);
+              -webkit-transform: translate3d(0, -64px, 0);
+            }
+            .chips_2>.light{
+              .block;
+            }
+            >.shadow{
+              .block;
+            }
+          }
+        }
+      }
+    }
+    /*
     .chips_big{
       background: url(../images/chips_big.png);
       .rect(593px, 150px);
@@ -119,14 +189,24 @@ body{
         }
       }
     }
+    */
+    .feature{
+      p{
+       .abs;
+        -webkit-transition: all .4s ease-in-out;
+        &:nth-child(2){
+          -webkit-transition-delay:.2s;
+        }
+        &:nth-child(3){
+          -webkit-transition-delay:.4s;
+        } 
+      }
+    }
     .feature_1{
       .rect(640px, 486px);
       overflow: hidden;
       .rel;
-      p{
-        .abs;
-        -webkit-transition: all .3s;
-      }
+      .hidden;
       .f1{
         .rect(160px, 164px);
         .pos(66px, 486px);
@@ -135,7 +215,7 @@ body{
           -webkit-transform: translate3d(0, -242px, 0);
         }
       }
-     .f2{
+      .f2{
         .rect(0px, 78px);
         .pos(66px, 408px);
         background: url(../images/f_1_2.png);
@@ -159,10 +239,7 @@ body{
       .rect(640px, 398px);
       overflow: hidden;
       .rel;
-       p{
-        .abs;
-        -webkit-transition: all .3s;
-      }
+      .hidden;
       .f1{
         .rect(350px, 168px);
         .pos(66px, 398px);
@@ -195,10 +272,7 @@ body{
       .rect(640px, 336px);
       overflow: hidden;
       .rel;
-       p{
-        .abs;
-        -webkit-transition: all .3s;
-      }
+      .hidden;
       .f1{
         .rect(264px, 154px);
         .pos(66px, 336px);
@@ -234,7 +308,7 @@ body{
       .abs;
       .pos(116px, 135px);
       //-webkit-transition: all 2s;
-      .hidden;
+      //.hidden;
       &.end{
         -webkit-transform: scale3d(1.2,1.2,1) translate3d(-45px, 116px, 0);
       }
@@ -264,7 +338,7 @@ body{
       .abs;
       .pos(11px, 258px);
       -webkit-transition: all 2s;
-      .hidden;
+      //.hidden;
       &.end{
         //.pos(-500px, 865px);
         -webkit-transform: translate3d(-511px, 607px, 0);

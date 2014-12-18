@@ -113,7 +113,6 @@ body {
 }
 .mc_container section.load {
   position: relative;
-  display: none;
 }
 .mc_container section.load .loadbar {
   position: absolute;
@@ -132,6 +131,55 @@ body {
   height: 698px;
   position: relative;
   overflow: hidden;
+  display: none;
+  /*
+    .chips_big{
+      background: url(../images/chips_big.png);
+      .rect(593px, 150px);
+      .abs;
+      .pos(22px, 507px);
+      .chips_1{
+        .rect(282px, 77px);
+        .abs;
+        .pos(225px, 34px);
+        background: url(../images/chips_1.png);
+        &.up{
+          .pos(225px, -86px);
+          >.light{
+            .block;
+          }
+        }
+        >.light{
+          .rect(282px, 189px);
+          background:url(../images/chips_1_light.png);
+          .hidden;
+        }
+        >.shadow{
+          .rect(124px, 37px);
+          .abs;
+          .pos(120px, 9px);
+          background: url(../images/chips_2_shadow.png);
+        }
+        .chips_2{
+          .rect(124px, 57px);
+          .abs;
+          .pos(120px, 0px);
+          background: url(../images/chips_2.png);
+          &.up{
+            .pos(120px, -64px);
+            >.light{
+              .block;
+            }
+          }
+           >.light{
+            .rect(124px, 109px);
+            background:url(../images/chips_2_light.png);
+            .hidden;
+          }
+        }
+      }
+    }
+    */
 }
 .mc_container section.scene_1 .chips {
   width: 287px;
@@ -150,73 +198,97 @@ body {
 .mc_container section.scene_1 .chips.step2 {
   -webkit-transform: scale(2.1, 2.1) translate3d(-9px, 113px, 0px);
 }
-.mc_container section.scene_1 .chips_big {
-  background: url(../images/chips_big.png);
+.mc_container section.scene_1 .chips_big_box {
   width: 593px;
   height: 150px;
   position: absolute;
   left: 22px;
   top: 507px;
+  display: none;
 }
-.mc_container section.scene_1 .chips_big .chips_1 {
+.mc_container section.scene_1 .chips_big_box .chips_big {
+  background: url(../images/chips_big.png);
+  width: 593px;
+  height: 150px;
+}
+.mc_container section.scene_1 .chips_big_box .chips_big.split {
+  background: url(../images/chips_big_1.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box {
   width: 282px;
   height: 77px;
   position: absolute;
   left: 225px;
   top: 34px;
-  background: url(../images/chips_1.png);
-}
-.mc_container section.scene_1 .chips_big .chips_1.up {
-  left: 225px;
-  top: -86px;
-}
-.mc_container section.scene_1 .chips_big .chips_1.up > .light {
-  display: block;
-}
-.mc_container section.scene_1 .chips_big .chips_1 > .light {
-  width: 282px;
-  height: 189px;
-  background: url(../images/chips_1_light.png);
   display: none;
 }
-.mc_container section.scene_1 .chips_big .chips_1 > .shadow {
-  width: 124px;
-  height: 37px;
-  position: absolute;
-  left: 120px;
-  top: 9px;
-  background: url(../images/chips_2_shadow.png);
+.mc_container section.scene_1 .chips_big_box .chips_1_box.up {
+  -webkit-transform: translate3d(0, -86px, 0);
 }
-.mc_container section.scene_1 .chips_big .chips_1 .chips_2 {
+.mc_container section.scene_1 .chips_big_box .chips_1_box.up .chips_1 > .light {
+  display: block;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_1 {
+  width: 282px;
+  height: 77px;
+  background: url(../images/chips_1.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_1 > .light {
+  width: 282px;
+  height: 0px;
+  background: url(../images/chips_1_light.png) top center;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box {
   width: 124px;
   height: 57px;
   position: absolute;
   left: 120px;
   top: 0px;
+  display: none;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box .chips_2 {
+  width: 124px;
+  height: 57px;
   background: url(../images/chips_2.png);
 }
-.mc_container section.scene_1 .chips_big .chips_1 .chips_2.up {
-  left: 120px;
-  top: -64px;
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box .chips_2 > .light {
+  width: 124px;
+  height: 0px;
+  background: url(../images/chips_2_light.png);
 }
-.mc_container section.scene_1 .chips_big .chips_1 .chips_2.up > .light {
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box > .shadow {
+  width: 124px;
+  height: 37px;
+  position: absolute;
+  left: 0px;
+  top: 9px;
+  background: url(../images/chips_2_shadow.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box.up .chips_2 {
+  -webkit-transform: translate3d(0, -64px, 0);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box.up .chips_2 > .light {
   display: block;
 }
-.mc_container section.scene_1 .chips_big .chips_1 .chips_2 > .light {
-  width: 124px;
-  height: 109px;
-  background: url(../images/chips_2_light.png);
-  display: none;
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box.up > .shadow {
+  display: block;
+}
+.mc_container section.scene_1 .feature p {
+  position: absolute;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+.mc_container section.scene_1 .feature p:nth-child(2) {
+  -webkit-transition-delay: .2s;
+}
+.mc_container section.scene_1 .feature p:nth-child(3) {
+  -webkit-transition-delay: .4s;
 }
 .mc_container section.scene_1 .feature_1 {
   width: 640px;
   height: 486px;
   overflow: hidden;
   position: relative;
-}
-.mc_container section.scene_1 .feature_1 p {
-  position: absolute;
-  -webkit-transition: all .3s;
+  display: none;
 }
 .mc_container section.scene_1 .feature_1 .f1 {
   width: 160px;
@@ -254,10 +326,7 @@ body {
   height: 398px;
   overflow: hidden;
   position: relative;
-}
-.mc_container section.scene_1 .feature_2 p {
-  position: absolute;
-  -webkit-transition: all .3s;
+  display: none;
 }
 .mc_container section.scene_1 .feature_2 .f1 {
   width: 350px;
@@ -295,10 +364,7 @@ body {
   height: 336px;
   overflow: hidden;
   position: relative;
-}
-.mc_container section.scene_1 .feature_3 p {
-  position: absolute;
-  -webkit-transition: all .3s;
+  display: none;
 }
 .mc_container section.scene_1 .feature_3 .f1 {
   width: 264px;
@@ -339,7 +405,6 @@ body {
   position: absolute;
   left: 116px;
   top: 135px;
-  display: none;
 }
 .mc_container section.scene_1 .tablet_top.end {
   -webkit-transform: scale3d(1.2, 1.2, 1) translate3d(-45px, 116px, 0);
@@ -372,7 +437,6 @@ body {
   left: 11px;
   top: 258px;
   -webkit-transition: all 2s;
-  display: none;
 }
 .mc_container section.scene_1 .tablet_bottom.end {
   -webkit-transform: translate3d(-511px, 607px, 0);
