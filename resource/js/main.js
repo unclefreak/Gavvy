@@ -62,6 +62,7 @@ define(function(require){
 		//TODO: begin 
 		$('section.load').hide();
 		$('section.scene_1').show();
+		$('.arrow').show().attr('class', 'arrow upper');
 	});
 /*
 	var count = 1;
@@ -86,6 +87,7 @@ define(function(require){
 		step++;
 		switch(step){
 			case 1:
+				$('.arrow').show().attr('class', 'arrow');
 				move('.tablet_top').scale(1.2, 1.2).translate(-45, 116).duration('1s').end(function(){
 					$('.chips').show();
 					move(".screen")
@@ -189,6 +191,7 @@ define(function(require){
             	}, delay);
             	break;
             case 7:
+            	$('.arrow').show().attr('class', 'arrow bottom');
             	$('.feature_4').hide();
             	$('.chips_3>.light').hide();
             	move('.chips_3').set('opacity', .2).duration('.2s').end();

@@ -58,6 +58,22 @@ body{
     .rel;
     .hidden;
     //background: url(../images/bg_7.png);
+    .arrow{
+      .rect(22px, 44px);
+      background: url(../images/arrow.png);
+      .abs;
+      right:80px;
+      bottom:25px;
+      .hidden;
+      &.upper{
+        height:22px;
+        background-position: center top;
+      }
+      &.bottom{
+        height: 22px;
+        background-position: center bottom;
+      }
+    }
     .chips{
       .rect(287px, 70px);
       .abs;
