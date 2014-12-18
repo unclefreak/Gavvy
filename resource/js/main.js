@@ -79,12 +79,12 @@ define(function(require){
 	var step = 0;
 	var isAnimating = false;
     var delay = 100;
-	var sceneAnimate = function(){
+	var swipeUpAnimation = function(){
 		if(isAnimating){
 			return;
 		}
 		isAnimating = true;
-		step++;
+		step < 7 && step++;
 		switch(step){
 			case 1:
 				$('.arrow').show().attr('class', 'arrow');
@@ -193,7 +193,7 @@ define(function(require){
             case 7:
             	$('.arrow').show().attr('class', 'arrow bottom');
             	$('.feature_4').hide();
-            	$('.chips_3>.light').hide();
+            	$('.chips_3>.light').height(0);
             	move('.chips_3').set('opacity', .2).duration('.2s').end();
             	move('.chips_4').translate(0, -81).duration('.8s').end(function(){
             		move('.chips_4>.light').set('height', '131px').duration('.2s').end(function(){
@@ -209,6 +209,61 @@ define(function(require){
 		
 	};
 
+	var swipeDownAnimation = function(){
+		if(isAnimating){
+			return;
+		}
+		isAnimating = true;
+		step--;
+		switch(step){
+			case 0:
+				move('.screen').set('opacity', 1).duration('.5').end(function(){
+					move('.screen').set('opacity', 0).duration('.5s').end(function(){
+						move('.screen').set('opacity', 1).duration('.5s').end(function(){
+							$('.chips').hide();
+							setTimeout(function(){
+								move('.tablet_top').translate(0, 0).duration('1s').end();
+							}, delay);
+							move('.tablet_bottom').translate(0, 0).duration('1s').end(function(){
+								isAnimating = false;
+							});
+							$('.arrow').attr('class', 'arrow upper');
+						});
+					})
+				})
+
+				break;
+			case 1:
+
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				$('.arrow').show().attr('class', 'arrow');
+				$('.feature_5').hide();
+				$('.chips_4>.light').height(0);
+				move('chips_4').translate(0, 81).duration('.8s').end(function(){
+					move('.chips_3').set('opacity', 1).duration('.2s').end(function(){
+						move('.chips_3>.light').set('height', '178px').duration('.2s').end(function(){
+							$('.feature_4').show();
+            				setTimeout(function(){
+            					$('.feature_4 p').addClass('end');
+            					isAnimating = false;
+            				}, delay);
+						});
+					});
+				});
+				break;
+		}
+
+	};
+	//prevent default scroll event
     document.addEventListener('touchmove', function (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -249,9 +304,10 @@ define(function(require){
         }
         if(diffY > 0){
             //Swipe down
+            swipeDownAnimation();
         }else{
             //swipe up
-            sceneAnimate();
+            swipeUpAnimation();
         }
     }, false);
     //$('.feature p').addClass('end');
