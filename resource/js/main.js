@@ -2,9 +2,9 @@ define(function(require){
 	var RLoader = require('./resource-loader');
 	var loader = new RLoader();
 	var move = require('./move');
-	console.log(move);
 	loader.load([
 		{src: 'resource/images/background.jpg'},
+		{src: 'resource/images/title.png'},
 		{src: 'resource/images/load_1.png'},
 		{src: 'resource/images/load_2.png'},
 		{src: 'resource/images/load_3.png'},
@@ -14,40 +14,56 @@ define(function(require){
 		{src: 'resource/images/load_7.png'},
 		{src: 'resource/images/load_8.png'},
 		{src: 'resource/images/load_9.png'},
-        {src: 'resource/images/bg.png'},
+		{src: 'resource/images/tablet_bottom.png'},
+        {src: 'resource/images/tablet_top.png'},
+        {src: 'resource/images/tablet_top_screen.png'},
+        {src: 'resource/images/glur.png'},
         {src: 'resource/images/chips.png'},
-        {src: 'resource/images/chips_1.png'},
-        {src: 'resource/images/chips_1_light.png'},
-        {src: 'resource/images/chips_2.png'},
-        {src: 'resource/images/chips_2_light.png'},
-        {src: 'resource/images/chips_2_shadow.png'},
         {src: 'resource/images/chips_big.png'},
         {src: 'resource/images/chips_big_1.png'},
+        {src: 'resource/images/chips_1.png'},
+        {src: 'resource/images/chips_1_light.png'},
         {src: 'resource/images/f_1_1.png'},
         {src: 'resource/images/f_1_2.png'},
         {src: 'resource/images/f_1_3.png'},
         {src: 'resource/images/f_2_1.png'},
         {src: 'resource/images/f_2_2.png'},
         {src: 'resource/images/f_2_3.png'},
+
+        {src: 'resource/images/chips_2.png'},
+        {src: 'resource/images/chips_2_light.png'},
+        {src: 'resource/images/chips_2_shadow.png'},
         {src: 'resource/images/f_3_1.png'},
         {src: 'resource/images/f_3_2.png'},
         {src: 'resource/images/f_3_3.png'},
-        {src: 'resource/images/tablet_bottom.png'},
-        {src: 'resource/images/tablet_top.png'},
-        {src: 'resource/images/tablet_top_screen.png'},
-        {src: 'resource/images/glur.png'},
-		{src: 'resource/images/title.png'}
+
+        {src: 'resource/images/chips_3.png'},
+        {src: 'resource/images/chips_3_light.png'},
+        {src: 'resource/images/chips_3_shadow.png'},
+        {src: 'resource/images/chips_4.png'},
+        {src: 'resource/images/chips_4_light.png'},
+        {src: 'resource/images/f_4_1.png'},
+        {src: 'resource/images/f_4_2.png'},
+        {src: 'resource/images/f_4_3.png'},
+        {src: 'resource/images/f_5_1.png'},
+        {src: 'resource/images/f_5_2.png'},
+        {src: 'resource/images/f_5_3.png'},
+       
+        {src: 'resource/images/bg.png'},
 	]);
 	loader.on('progress', function(e){
 		//TODO: 根据百分比来判断显示的载入图片
-		if(e.loadedCount < 10){
-			//$('section.load .imgbox img').attr('src', 'resource/images/load_' + e.loadedCount + ".png");
-		}
+		var percenter = e.loadedCount / e.totalCount;
+		percenter = Math.ceil(percenter * 10) - 1;
+		if(percenter > 0)
+			$('section.load .imgbox img').attr('src', 'resource/images/load_' + percenter + ".png");
 	});
 	loader.on('load', function(e){
-		console.log(e);
+		//TODO: begin 
+		$('section.load').hide();
+		$('section.scene_1').show();
 	});
-
+/*
 	var count = 1;
 	var timer = setInterval(function(){
 		$('section.load .imgbox img').attr('src', 'resource/images/load_' + (count++) + ".png");
@@ -58,6 +74,7 @@ define(function(require){
 			$('section.scene_1').show();
 		}
 	}, 200);
+*/
 	var step = 0;
 	var isAnimating = false;
     var delay = 100;
