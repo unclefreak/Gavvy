@@ -126,7 +126,7 @@ define(function(require){
                 $('.chips_1_box').show();
                 setTimeout(function(){
                     move('.chips_1_box').translate(0, -120).duration('1s').end(function(){
-                        move('.chips_1 .light').set('height', '189px').duration('.2s').end(function(){
+                        move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
                             $('.feature_2').show();
                             setTimeout(function(){
                                 $('.feature_2 p').addClass('end');
@@ -139,9 +139,12 @@ define(function(require){
             case 5:
                 $('.feature_2').hide();
                 $('.chips_2_box').show();
+                $('.chips_1>.light').hide();
+                
                 setTimeout(function(){
-                    move('.chips_2').translate(0, -64).duration('1s').end(function(){
-                        move('.chips_2 .light').set('height', '109px').duration('.2s').end(function(){
+                    move('.chips_2').translate(0, -64).duration('.8s').end(function(){
+                    	move('.chips_1').set('opacity', .2).duration('.2s').end();
+                        move('.chips_2>.light').set('height', '109px').duration('.2s').end(function(){
                             $('.feature_3').show();
                             setTimeout(function(){
                                 $('.feature_3 p').addClass('end');
@@ -150,9 +153,40 @@ define(function(require){
                         });
                     });
                 }, delay);
+                break;
+            case 6:
+            	$('.feature_3').hide();
+            	$('.chips_3_box').show();
+            	$('.chips_2>.light').hide();
+            	setTimeout(function(){
+          			move('.chips_2').set('opacity', .2).duration('.2s').end();
+            		move('.chips_4_box').translate(0, -113).duration('.8s').end(function(){
+            			move('.chips_3>.light').set('height', '178px').duration('.2s').end(function(){
+            				$('.feature_4').show();
+            				setTimeout(function(){
+            					$('.feature_4 p').addClass('end');
+            					isAnimating = false;
+            				}, delay);
+            			});
+            		});
+            	}, delay);
+            	break;
+            case 7:
+            	$('.feature_4').hide();
+            	$('.chips_3>.light').hide();
+            	move('.chips_3').set('opacity', .2).duration('.2s').end();
+            	move('.chips_4').translate(0, -81).duration('.8s').end(function(){
+            		move('.chips_4>.light').set('height', '131px').duration('.2s').end(function(){
+            			$('.feature_5').show();
+            			setTimeout(function(){
+            				$('.feature_5 p').addClass('end');
+            				isAnimating = false;
+            			});
+            		})
+            	});
+            	break;
 		}
 		
-		return;
 	};
 
     document.addEventListener('touchmove', function (event) {
@@ -185,7 +219,6 @@ define(function(require){
         var touch = e.touches[0];
     }, false);
     document.body.addEventListener('touchend', function(e){
-        console.log(e);
         var touch = e.changedTouches[0];
         swipeInfo.endX = touch.clientX;
         swipeInfo.endY = touch.clientY;
@@ -198,4 +231,5 @@ define(function(require){
             sceneAnimate();
         }
     }, false);
+    //$('.feature p').addClass('end');
 });

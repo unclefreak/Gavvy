@@ -33,6 +33,7 @@ body{
   width: 640px;
   height: 100%;
   -webkit-animation: bgframe 5s ease-in-out infinite alternate;
+  overflow: hidden;
   header.page{
     height:134px;
     background: url(../images/title.png);
@@ -55,7 +56,6 @@ body{
   section.scene_1{
     .rect(640px, 698px);
     .rel;
-    overflow: hidden;
     .hidden;
     //background: url(../images/bg_7.png);
     .chips{
@@ -137,6 +137,62 @@ body{
             }
             >.shadow{
               .block;
+            }
+          }
+          
+        }
+        .chips_3_box{
+          .rect(165px, 71px);
+          .abs;
+          .pos(0, 0);
+          .hidden;
+          .chips_3{
+            .rect(165px, 71px);
+            background: url(../images/chips_3.png);
+            >.light{
+              .rect(165px, 0);
+              background: url(../images/chips_3_light.png);
+            }
+          }
+          >.shadow{
+            .abs;
+            .rect(165px, 55px);
+            .pos(2px, 10px);
+            background: url(../images/chips_3_shadow.png);
+          }
+
+          &.up{
+            .chips_4_box{
+              -webkit-transform: translate3d(0, -113px, 0);
+              .chips_3>.light{
+                .block;
+                height: 178px;
+              }
+            }
+            >.shadow{
+              .block;
+            }
+          }
+          .chips_4_box{
+            .rect(165px, 71px);
+            .chips_4{
+              .rect(112px, 45px);
+              .abs;
+              .pos(0, 28px);
+              background: url(../images/chips_4.png);
+              >.light{
+                .rect(112px, 0);
+                background: url(../images/chips_4_light.png);
+              }
+            }
+            &.up{
+              .chips_4{
+                -webkit-transform: translate3d(0, -81px, 0);
+                >.light{
+                  .block;
+                  height:131px;
+                }
+              }
             }
           }
         }
@@ -298,6 +354,73 @@ body{
         background: url(../images/f_3_3.png);
         &.end{
           -webkit-transform: translate3d(0, -126px, 0);
+        }
+      }
+    }
+    .feature_4{
+      .rect(640px, 284px);
+      overflow: hidden;
+      .rel;
+      .hidden;
+      .f1{
+        .rect(260px, 172px);
+        .pos(66px, 284px);
+        background: url(../images/f_4_1.png);
+        &.end{
+          -webkit-transform: translate3d(0, -274px, 0);
+        }
+      }
+     .f2{
+        .rect(0px, 102px);
+        .pos(66px, 183px);
+        background: url(../images/f_4_2.png);
+        //-webkit-transform: scale3d(0, 1, 1);
+        &.end{
+          //-webkit-transform: scale3d(1, 1, 1);
+          //-webkit-transform: translate3d(0, -78px, 0);
+          .rect(371px, 102px);
+        }
+      }
+      .f3{
+        .rect(147px, 134px);
+        .pos(437px, 284px);
+        background: url(../images/f_4_3.png);
+        &.end{
+          -webkit-transform: translate3d(0, -134px, 0);
+        }
+      }
+    }
+    .feature_5{
+      .rect(640px, 279px);
+      top:-46px;
+      overflow: hidden;
+      .rel;
+      .hidden;
+      .f1{
+        .rect(300px, 176px);
+        .pos(66px, 279px);
+        background: url(../images/f_5_1.png);
+        &.end{
+          -webkit-transform: translate3d(0, -274px, 0);
+        }
+      }
+     .f2{
+        .rect(0px, 102px);
+        .pos(66px, 177px);
+        background: url(../images/f_5_2.png);
+        //-webkit-transform: scale3d(0, 1, 1);
+        &.end{
+          //-webkit-transform: scale3d(1, 1, 1);
+          //-webkit-transform: translate3d(0, -78px, 0);
+          .rect(382px, 102px);
+        }
+      }
+      .f3{
+        .rect(136px, 150px);
+        .pos(448px, 279px);
+        background: url(../images/f_5_3.png);
+        &.end{
+          -webkit-transform: translate3d(0, -150px, 0);
         }
       }
     }

@@ -106,6 +106,7 @@ body {
   width: 640px;
   height: 100%;
   -webkit-animation: bgframe 5s ease-in-out infinite alternate;
+  overflow: hidden;
 }
 .mc_container header.page {
   height: 134px;
@@ -130,7 +131,6 @@ body {
   width: 640px;
   height: 698px;
   position: relative;
-  overflow: hidden;
   display: none;
   /*
     .chips_big{
@@ -180,6 +180,7 @@ body {
       }
     }
     */
+
 }
 .mc_container section.scene_1 .chips {
   width: 287px;
@@ -272,6 +273,66 @@ body {
 }
 .mc_container section.scene_1 .chips_big_box .chips_1_box .chips_2_box.up > .shadow {
   display: block;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box {
+  width: 165px;
+  height: 71px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_3 {
+  width: 165px;
+  height: 71px;
+  background: url(../images/chips_3.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_3 > .light {
+  width: 165px;
+  height: 0;
+  background: url(../images/chips_3_light.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box > .shadow {
+  position: absolute;
+  width: 165px;
+  height: 55px;
+  left: 2px;
+  top: 10px;
+  background: url(../images/chips_3_shadow.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box.up .chips_4_box {
+  -webkit-transform: translate3d(0, -113px, 0);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box.up .chips_4_box .chips_3 > .light {
+  display: block;
+  height: 178px;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box.up > .shadow {
+  display: block;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_4_box {
+  width: 165px;
+  height: 71px;
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_4_box .chips_4 {
+  width: 112px;
+  height: 45px;
+  position: absolute;
+  left: 0;
+  top: 28px;
+  background: url(../images/chips_4.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_4_box .chips_4 > .light {
+  width: 112px;
+  height: 0;
+  background: url(../images/chips_4_light.png);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_4_box.up .chips_4 {
+  -webkit-transform: translate3d(0, -81px, 0);
+}
+.mc_container section.scene_1 .chips_big_box .chips_1_box .chips_3_box .chips_4_box.up .chips_4 > .light {
+  display: block;
+  height: 131px;
 }
 .mc_container section.scene_1 .feature p {
   position: absolute;
@@ -396,6 +457,83 @@ body {
 }
 .mc_container section.scene_1 .feature_3 .f3.end {
   -webkit-transform: translate3d(0, -126px, 0);
+}
+.mc_container section.scene_1 .feature_4 {
+  width: 640px;
+  height: 284px;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}
+.mc_container section.scene_1 .feature_4 .f1 {
+  width: 260px;
+  height: 172px;
+  left: 66px;
+  top: 284px;
+  background: url(../images/f_4_1.png);
+}
+.mc_container section.scene_1 .feature_4 .f1.end {
+  -webkit-transform: translate3d(0, -274px, 0);
+}
+.mc_container section.scene_1 .feature_4 .f2 {
+  width: 0px;
+  height: 102px;
+  left: 66px;
+  top: 183px;
+  background: url(../images/f_4_2.png);
+}
+.mc_container section.scene_1 .feature_4 .f2.end {
+  width: 371px;
+  height: 102px;
+}
+.mc_container section.scene_1 .feature_4 .f3 {
+  width: 147px;
+  height: 134px;
+  left: 437px;
+  top: 284px;
+  background: url(../images/f_4_3.png);
+}
+.mc_container section.scene_1 .feature_4 .f3.end {
+  -webkit-transform: translate3d(0, -134px, 0);
+}
+.mc_container section.scene_1 .feature_5 {
+  width: 640px;
+  height: 279px;
+  top: -46px;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}
+.mc_container section.scene_1 .feature_5 .f1 {
+  width: 300px;
+  height: 176px;
+  left: 66px;
+  top: 279px;
+  background: url(../images/f_5_1.png);
+}
+.mc_container section.scene_1 .feature_5 .f1.end {
+  -webkit-transform: translate3d(0, -274px, 0);
+}
+.mc_container section.scene_1 .feature_5 .f2 {
+  width: 0px;
+  height: 102px;
+  left: 66px;
+  top: 177px;
+  background: url(../images/f_5_2.png);
+}
+.mc_container section.scene_1 .feature_5 .f2.end {
+  width: 382px;
+  height: 102px;
+}
+.mc_container section.scene_1 .feature_5 .f3 {
+  width: 136px;
+  height: 150px;
+  left: 448px;
+  top: 279px;
+  background: url(../images/f_5_3.png);
+}
+.mc_container section.scene_1 .feature_5 .f3.end {
+  -webkit-transform: translate3d(0, -150px, 0);
 }
 .mc_container section.scene_1 .tablet_top {
   width: 510px;
