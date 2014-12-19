@@ -49,7 +49,7 @@ define(function(require){
         {src: 'resource/images/f_5_2.png'},
         {src: 'resource/images/f_5_3.png'},
        
-        {src: 'resource/images/bg.png'},
+        {src: 'resource/images/bg.png'}
 	]);
 	loader.on('progress', function(e){
 		//TODO: 根据百分比来判断显示的载入图片
@@ -76,6 +76,11 @@ define(function(require){
 		}
 	}, 200);
 */
+    var delayRun = function(fn){
+        setTimeout(function(){
+            fn();
+        }, 100);
+    };
 	var step = 0;
 	var isAnimating = false;
     var delay = 100;
@@ -133,9 +138,9 @@ define(function(require){
 			case 4:
 				$('.feature_1').hide();
                 $('.chips_big').addClass('split');
-				move('.chips_big').y(-24).duration('.2s').ease('ease-out')
+				move('.chips_big').translate(0, -24).duration('.2s').ease('ease-out')
 					.then()
-                        .y(24)
+                        .translate(0, 24)
                         .duration('.2s')
                         .set('opacity', 0.2)
                         .pop()
@@ -158,7 +163,7 @@ define(function(require){
             case 5:
                 $('.feature_2').hide();
                 $('.chips_2_box').show();
-                $('.chips_1>.light').hide();
+                $('.chips_1>.light').height(0);
                 
                 setTimeout(function(){
                     move('.chips_2').translate(0, -64).duration('.8s').end(function(){
@@ -176,7 +181,7 @@ define(function(require){
             case 6:
             	$('.feature_3').hide();
             	$('.chips_3_box').show();
-            	$('.chips_2>.light').hide();
+            	$('.chips_2>.light').height(0);
             	setTimeout(function(){
           			move('.chips_2').set('opacity', .2).duration('.2s').end();
             		move('.chips_4_box').translate(0, -113).duration('.8s').end(function(){
@@ -214,7 +219,7 @@ define(function(require){
 			return;
 		}
 		isAnimating = true;
-		step--;
+		step > 0 && step--;
 		switch(step){
 			case 0:
 				move('.screen').set('opacity', 1).duration('.5').end(function(){
@@ -230,32 +235,102 @@ define(function(require){
 							$('.arrow').attr('class', 'arrow upper');
 						});
 					})
-				})
+				});
 
 				break;
 			case 1:
+                $('.tablet_top, .tablet_bottom').show();
+                setTimeout(function(){
+                    move('.tablet_top')
+                        .scale(1.2, 1.2)
+                        .translate(-45, 116)
+                        .duration('1s')
+                        .set('opacity', 1)
+                        .end(function(){
+                            $('.tablet_top').css('backgroundImage', '');
+                        });
+                    move('.chips').scale(.29,.29).translate(0, 0).duration('1s').end(function(){
+                        isAnimating = false;
+                    });
+                }, delay);
 
 				break;
 			case 2:
+                $('.chips').show();
+                $('.chips_big_box').hide();
+                $('.feature_1 p').removeClass('end');
+                $('.feature_1').hide();
+                delayRun(function(){
+                    move('.chips').scale(1.2, 1.2).translate(0, 92).duration('1s').end(function(){
+                        isAnimating = false;
+                    });
+                });
 				break;
 			case 3:
+                $('.feature_2').hide();
+                $('.feature_2 p').removeClass('end');
+                move('.chips_1>.light').set('height', 0).duration('.2s').end();
+                move('.chips_1_box').translate(0, 0).duration('1s').end(function(){
+                    move('.chips_big').set('opacity', 1).duration('.2s').end(function(){
+                        isAnimating = false;
+                        $('.chips_1_box').hide();
+                        $('.chips_big').removeClass('split');
+                        $('.feature_1').show();
+                        $('.feature_1 p').removeClass('end');
+                        delayRun(function(){
+                            $('.feature_1 p').addClass('end');
+                        });
+                    });
+                });
+
 				break;
 			case 4:
+                $('.feature_3').hide();
+                move('.chips_2>.light').set('height', 0).duration('.2s').end();
+                move('.chips_2').translate(0, 0).duration('.8s').end(function(){
+                    $('.chips_2_box').hide();
+                    move('.chips_1').set('opacity', 1).duration('.2s').end(function(){
+                        $('.feature_2').show();
+                        $('.feature_2 p').removeClass('end');
+                        delayRun(function(){
+                            $('.feature_2 p').addClass('end');
+                        });
+                        move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
+                            isAnimating = false;
+                        })
+                    });
+                });
 				break;
 			case 5:
+                $('.feature_4').hide();
+                move('.chips_3>.light').set('height', 0).duration('.2s').end();
+                move('.chips_4_box').translate(0, 0).duration('.8s').end(function(){
+                    $('.chips_3_box').hide();
+                    move('.chips_2').set('opacity', 1).duration('.2s').end(function(){
+                        move('.chips_2>.light').set('height', '109px').duration('.2s').end(function(){
+                            isAnimating = false;
+                            $('.feature_3').show();
+                            $('.feature_3 p').removeClass('end');
+                            delayRun(function(){
+                                $('.feature_3 p').addClass('end');
+                            });
+                        })
+                    });
+                });
 				break;
 			case 6:
 				$('.arrow').show().attr('class', 'arrow');
 				$('.feature_5').hide();
 				$('.chips_4>.light').height(0);
-				move('chips_4').translate(0, 81).duration('.8s').end(function(){
+				move('.chips_4').translate(0, 0).duration('.8s').end(function(){
 					move('.chips_3').set('opacity', 1).duration('.2s').end(function(){
 						move('.chips_3>.light').set('height', '178px').duration('.2s').end(function(){
 							$('.feature_4').show();
-            				setTimeout(function(){
+                            $('.feature_4 p').removeClass('end');
+            				delayRun(function(){
             					$('.feature_4 p').addClass('end');
             					isAnimating = false;
-            				}, delay);
+            				});
 						});
 					});
 				});
