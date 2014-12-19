@@ -88,8 +88,12 @@ define(function(require){
 		if(isAnimating){
 			return;
 		}
-		isAnimating = true;
-		step < 7 && step++;
+        if(step < 7){
+            step++;
+        }else{
+            return;
+        }
+        isAnimating = true;
 		switch(step){
 			case 1:
 				$('.arrow').show().attr('class', 'arrow');
@@ -98,18 +102,25 @@ define(function(require){
 					move(".screen")
 						.set('opacity', 0)
 						.duration('.5s')
-							.then()
+						.end(function(){
+                            move(".screen")
 								.set('opacity', 1)
 								.duration('.5s')
-									.then()
+                                .end(function(){
+                                    move(".screen")
 										.set('opacity', 0)
 										.duration('.5s')
-										.pop()
-									.pop()
-								.end(function(){
-									isAnimating = false;
-									
-								});
+                                        .end(function(){
+                                            isAnimating = false;
+                                            $('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
+                                            move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
+                                            move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
+                                                isAnimating = false;
+                                                $('.tablet_top, .tablet_bottom').hide();
+                                            });
+                                        });
+                                });
+                        });
 				});
 				move('.tablet_bottom').translate(-511, 607).duration('1s').end();
 				break;
@@ -121,7 +132,7 @@ define(function(require){
 					$('.tablet_top, .tablet_bottom').hide();
 				});
 				break;
-			case 3: 
+			case 3:
 				move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
 					isAnimating = false;
 
@@ -218,8 +229,12 @@ define(function(require){
 		if(isAnimating){
 			return;
 		}
-		isAnimating = true;
-		step > 0 && step--;
+        if(step > 0){
+            step--;
+        }else{
+            return;
+        }
+        isAnimating = true;
 		switch(step){
 			case 0:
 				move('.screen').set('opacity', 1).duration('.5').end(function(){
