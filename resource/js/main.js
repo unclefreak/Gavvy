@@ -88,7 +88,7 @@ define(function(require){
 		if(isAnimating){
 			return;
 		}
-        if(step < 7){
+        if(step < 5){
             step++;
         }else{
             return;
@@ -117,6 +117,18 @@ define(function(require){
                                             move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
                                                 isAnimating = false;
                                                 $('.tablet_top, .tablet_bottom').hide();
+                                                move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
+                                                    isAnimating = false;
+
+                                                    $('.chips').hide();
+                                                    $('.chips_big_box').show();
+                                                    $('.feature_1').show();
+                                                    setTimeout(function(){
+                                                        $('.feature_1 p').addClass('end');
+                                                    }, delay);
+                                                    //$('.feature_2 p').addClass('end');
+                                                    //$('.feature_3 p').addClass('end');
+                                                });
                                             });
                                         });
                                 });
@@ -125,28 +137,6 @@ define(function(require){
 				move('.tablet_bottom').translate(-511, 607).duration('1s').end();
 				break;
 			case 2:
-				$('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
-				move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
-				move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
-					isAnimating = false;
-					$('.tablet_top, .tablet_bottom').hide();
-				});
-				break;
-			case 3:
-				move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
-					isAnimating = false;
-
-					$('.chips').hide();
-					$('.chips_big_box').show();
-					$('.feature_1').show();
-					setTimeout(function(){
-						$('.feature_1 p').addClass('end');
-					}, delay);
-					//$('.feature_2 p').addClass('end');
-					//$('.feature_3 p').addClass('end');
-				});
-				break;
-			case 4:
 				$('.feature_1').hide();
                 $('.chips_big').addClass('split');
 				move('.chips_big').translate(0, -24).duration('.2s').ease('ease-out')
@@ -171,7 +161,7 @@ define(function(require){
                     });
                 }, delay);
 				break;
-            case 5:
+            case 3:
                 $('.feature_2').hide();
                 $('.chips_2_box').show();
                 $('.chips_1>.light').height(0);
@@ -189,7 +179,7 @@ define(function(require){
                     });
                 }, delay);
                 break;
-            case 6:
+            case 4:
             	$('.feature_3').hide();
             	$('.chips_3_box').show();
             	$('.chips_2>.light').height(0);
@@ -206,7 +196,7 @@ define(function(require){
             		});
             	}, delay);
             	break;
-            case 7:
+            case 5:
             	$('.arrow').show().attr('class', 'arrow bottom');
             	$('.feature_4').hide();
             	$('.chips_3>.light').height(0);
@@ -236,6 +226,7 @@ define(function(require){
         }
         isAnimating = true;
 		switch(step){
+            /*
 			case 0:
 				move('.screen').set('opacity', 1).duration('.5').end(function(){
 					move('.screen').set('opacity', 0).duration('.5s').end(function(){
@@ -270,7 +261,8 @@ define(function(require){
                 }, delay);
 
 				break;
-			case 2:
+				*/
+			case 0:
                 $('.chips').show();
                 $('.chips_big_box').hide();
                 $('.feature_1 p').removeClass('end');
@@ -278,10 +270,38 @@ define(function(require){
                 delayRun(function(){
                     move('.chips').scale(1.2, 1.2).translate(0, 92).duration('1s').end(function(){
                         isAnimating = false;
+                        $('.tablet_top, .tablet_bottom').show();
+                        setTimeout(function(){
+                            move('.tablet_top')
+                                .scale(1.2, 1.2)
+                                .translate(-45, 116)
+                                .duration('1s')
+                                .set('opacity', 1)
+                                .end(function(){
+                                    $('.tablet_top').css('backgroundImage', '');
+                                });
+                            move('.chips').scale(.29,.29).translate(0, 0).duration('1s').end(function(){
+                                isAnimating = false;
+                                move('.screen').set('opacity', 1).duration('.5').end(function(){
+                                    move('.screen').set('opacity', 0).duration('.5s').end(function(){
+                                        move('.screen').set('opacity', 1).duration('.5s').end(function(){
+                                            $('.chips').hide();
+                                            setTimeout(function(){
+                                                move('.tablet_top').translate(0, 0).duration('1s').end();
+                                            }, delay);
+                                            move('.tablet_bottom').translate(0, 0).duration('1s').end(function(){
+                                                isAnimating = false;
+                                            });
+                                            $('.arrow').attr('class', 'arrow upper');
+                                        });
+                                    })
+                                });
+                            });
+                        }, delay);
                     });
                 });
 				break;
-			case 3:
+			case 1:
                 $('.feature_2').hide();
                 $('.feature_2 p').removeClass('end');
                 move('.chips_1>.light').set('height', 0).duration('.2s').end();
@@ -299,7 +319,7 @@ define(function(require){
                 });
 
 				break;
-			case 4:
+			case 2:
                 $('.feature_3').hide();
                 move('.chips_2>.light').set('height', 0).duration('.2s').end();
                 move('.chips_2').translate(0, 0).duration('.8s').end(function(){
@@ -316,7 +336,7 @@ define(function(require){
                     });
                 });
 				break;
-			case 5:
+			case 3:
                 $('.feature_4').hide();
                 move('.chips_3>.light').set('height', 0).duration('.2s').end();
                 move('.chips_4_box').translate(0, 0).duration('.8s').end(function(){
@@ -333,7 +353,7 @@ define(function(require){
                     });
                 });
 				break;
-			case 6:
+			case 4:
 				$('.arrow').show().attr('class', 'arrow');
 				$('.feature_5').hide();
 				$('.chips_4>.light').height(0);
