@@ -379,11 +379,17 @@ define(function(require){
         event.preventDefault();
         event.stopPropagation();
     }, false);
+    var swipe = require('./swipe');
+    swipe('body').on('swipeup', function(e){
+        swipeUpAnimation();
+    });
+    swipe('body').on('swipedown', function(e){
+        swipeDownAnimation();
+    });
     /*
     $(document.body).on('swipe', function(){
         console.log("swipe up");
     });
-    */
     var swipeInfo = {
         startX: null,
         startY: null,
@@ -416,5 +422,6 @@ define(function(require){
             swipeUpAnimation();
         }
     }, false);
+     */
     //$('.feature p').addClass('end');
 });
