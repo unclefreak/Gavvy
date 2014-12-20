@@ -111,20 +111,18 @@ define(function(require){
 										.set('opacity', 0)
 										.duration('.5s')
                                         .end(function(){
-                                            isAnimating = false;
                                             $('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
                                             move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
                                             move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
-                                                isAnimating = false;
                                                 $('.tablet_top, .tablet_bottom').hide();
                                                 move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
-                                                    isAnimating = false;
 
                                                     $('.chips').hide();
                                                     $('.chips_big_box').show();
                                                     $('.feature_1').show();
                                                     setTimeout(function(){
                                                         $('.feature_1 p').addClass('end');
+                                                        isAnimating = false;
                                                     }, delay);
                                                     //$('.feature_2 p').addClass('end');
                                                     //$('.feature_3 p').addClass('end');
@@ -269,7 +267,6 @@ define(function(require){
                 $('.feature_1').hide();
                 delayRun(function(){
                     move('.chips').scale(1.2, 1.2).translate(0, 92).duration('1s').end(function(){
-                        isAnimating = false;
                         $('.tablet_top, .tablet_bottom').show();
                         setTimeout(function(){
                             move('.tablet_top')
@@ -281,7 +278,6 @@ define(function(require){
                                     $('.tablet_top').css('backgroundImage', '');
                                 });
                             move('.chips').scale(.29,.29).translate(0, 0).duration('1s').end(function(){
-                                isAnimating = false;
                                 move('.screen').set('opacity', 1).duration('.5').end(function(){
                                     move('.screen').set('opacity', 0).duration('.5s').end(function(){
                                         move('.screen').set('opacity', 1).duration('.5s').end(function(){
