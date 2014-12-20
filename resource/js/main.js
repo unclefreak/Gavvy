@@ -122,7 +122,9 @@ define(function(require){
                                                     $('.feature_1').show();
                                                     setTimeout(function(){
                                                         $('.feature_1 p').addClass('end');
-                                                        isAnimating = false;
+                                                        setTimeout(function(){
+                                                            isAnimating = false;
+                                                        }, 900);
                                                     }, delay);
                                                     //$('.feature_2 p').addClass('end');
                                                     //$('.feature_3 p').addClass('end');
@@ -153,7 +155,9 @@ define(function(require){
                             $('.feature_2').show();
                             setTimeout(function(){
                                 $('.feature_2 p').addClass('end');
-                                isAnimating = false;
+                                setTimeout(function(){
+                                    isAnimating = false;
+                                }, 900);
                             }, delay);
                         });
                     });
@@ -171,7 +175,9 @@ define(function(require){
                             $('.feature_3').show();
                             setTimeout(function(){
                                 $('.feature_3 p').addClass('end');
-                                isAnimating = false;
+                                setTimeout(function(){
+                                    isAnimating = false;
+                                }, 900);
                             }, delay);
                         });
                     });
@@ -188,7 +194,9 @@ define(function(require){
             				$('.feature_4').show();
             				setTimeout(function(){
             					$('.feature_4 p').addClass('end');
-            					isAnimating = false;
+                                setTimeout(function(){
+                                    isAnimating = false;
+                                }, 900);
             				}, delay);
             			});
             		});
@@ -204,7 +212,9 @@ define(function(require){
             			$('.feature_5').show();
             			setTimeout(function(){
             				$('.feature_5 p').addClass('end');
-            				isAnimating = false;
+                            setTimeout(function(){
+                                isAnimating = false;
+                            }, 900);
             			});
             		})
             	});
@@ -303,13 +313,15 @@ define(function(require){
                 move('.chips_1>.light').set('height', 0).duration('.2s').end();
                 move('.chips_1_box').translate(0, 0).duration('1s').end(function(){
                     move('.chips_big').set('opacity', 1).duration('.2s').end(function(){
-                        isAnimating = false;
                         $('.chips_1_box').hide();
                         $('.chips_big').removeClass('split');
                         $('.feature_1').show();
                         $('.feature_1 p').removeClass('end');
                         delayRun(function(){
                             $('.feature_1 p').addClass('end');
+                            setTimeout(function () {
+                                isAnimating = false;
+                            }, 900);
                         });
                     });
                 });
@@ -325,10 +337,13 @@ define(function(require){
                         $('.feature_2 p').removeClass('end');
                         delayRun(function(){
                             $('.feature_2 p').addClass('end');
+                            setTimeout(function () {
+                                isAnimating = false;
+                            }, 900);
                         });
                         move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
-                            isAnimating = false;
-                        })
+
+                        });
                     });
                 });
 				break;
@@ -339,11 +354,13 @@ define(function(require){
                     $('.chips_3_box').hide();
                     move('.chips_2').set('opacity', 1).duration('.2s').end(function(){
                         move('.chips_2>.light').set('height', '109px').duration('.2s').end(function(){
-                            isAnimating = false;
                             $('.feature_3').show();
                             $('.feature_3 p').removeClass('end');
                             delayRun(function(){
                                 $('.feature_3 p').addClass('end');
+                                setTimeout(function () {
+                                    isAnimating = false;
+                                }, 900);
                             });
                         })
                     });
@@ -360,7 +377,9 @@ define(function(require){
                             $('.feature_4 p').removeClass('end');
             				delayRun(function(){
             					$('.feature_4 p').addClass('end');
-            					isAnimating = false;
+                                setTimeout(function () {
+                                    isAnimating = false;
+                                }, 900);
             				});
 						});
 					});
