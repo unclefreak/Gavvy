@@ -132,6 +132,8 @@ body {
   height: 698px;
   position: relative;
   display: none;
+  top: 50%;
+  margin-top: -480px;
   /*
     .chips_big{
       background: url(../images/chips_big.png);
@@ -180,7 +182,6 @@ body {
       }
     }
     */
-
 }
 .mc_container section.scene_1 .arrow {
   width: 22px;
