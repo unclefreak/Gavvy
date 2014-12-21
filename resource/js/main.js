@@ -139,17 +139,18 @@ define(function(require){
 			case 2:
 				$('.feature_1').hide();
                 $('.chips_big').addClass('split');
-				move('.chips_big').translate(0, -24).duration('.2s').ease('ease-out')
-					.then()
+				
+                $('.chips_1_box').show();
+                setTimeout(function(){
+                    move('.chips_big').translate(0, -24).duration('.2s')
+                    .then()
                         .translate(0, 24)
                         .duration('.2s')
                         .set('opacity', 0.2)
                         .pop()
-					.end(function(){
+                    .end(function(){
 
                     });
-                $('.chips_1_box').show();
-                setTimeout(function(){
                     move('.chips_1_box').translate(0, -120).duration('1s').end(function(){
                         move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
                             $('.feature_2').show();
