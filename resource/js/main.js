@@ -323,7 +323,7 @@ define(function(require){
 			case 1:
                 $('.feature_2').hide();
                 $('.feature_2 p').removeClass('end');
-                move('.chips_1>.light').set('height', 0).duration('.2s').end();
+                $('.chips_1>.light').height(0);
                 move('.chips_1_box').translate(0, 0).duration('1s').end(function(){
                     move('.chips_big').set('opacity', 1).duration('.2s').end(function(){
                         $('.chips_1_box').hide();
