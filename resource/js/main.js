@@ -103,36 +103,35 @@ define(function(require){
 						.set('opacity', 0)
 						.duration('.5s')
 						.end(function(){
-                            move(".screen")
-								.set('opacity', 1)
-								.duration('.5s')
-                                .end(function(){
-                                    move(".screen")
-										.set('opacity', 0)
-										.duration('.5s')
-                                        .end(function(){
+                            move('.chips').set('opacity', 0).duration('.5s').end(function(){
+                                move('.chips').set('opacity', 1).duration('.5s').end(function(){
+                                    move('.chips').set('opacity', 0).duration('.5s').end(function(){
+                                        move('.chips').set('opacity', 1).duration('.5s').end(function(){
+
                                             $('.tablet_top').css({'backgroundImage': 'url(resource/images/glur.png)'});
                                             move('.tablet_top').scale(4, 4).translate(0, 92).duration('1s').set('opacity', 0).end();
-                                            move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
-                                                $('.tablet_top, .tablet_bottom').hide();
-                                                move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
+                                            //move('.chips').scale(1, 1).translate(-10, 170).duration('1s').end(function(){
+                                            $('.tablet_top, .tablet_bottom').hide();
+                                            move('.chips').scale(2.1, 2.1).translate(-8, 113).duration('1s').end(function(){
 
-                                                    $('.chips').hide();
-                                                    $('.chips_big_box').show();
-                                                    $('.feature_1').show();
-                                                    $('.feature_1 p').removeClass('end');
+                                                $('.chips').hide();
+                                                $('.chips_big_box').show();
+                                                $('.feature_1').show();
+                                                $('.feature_1 p').removeClass('end');
+                                                setTimeout(function(){
+                                                    $('.feature_1 p').addClass('end');
                                                     setTimeout(function(){
-                                                        $('.feature_1 p').addClass('end');
-                                                        setTimeout(function(){
-                                                            isAnimating = false;
-                                                        }, 900);
-                                                    }, delay);
-                                                    //$('.feature_2 p').addClass('end');
-                                                    //$('.feature_3 p').addClass('end');
-                                                });
+                                                        isAnimating = false;
+                                                    }, 900);
+                                                }, delay);
+                                                //$('.feature_2 p').addClass('end');
+                                                //$('.feature_3 p').addClass('end');
                                             });
+                                            //});
                                         });
+                                    });
                                 });
+                            });
                         });
 				});
 				move('.tablet_bottom').translate(-511, 607).duration('1s').end();
@@ -175,8 +174,8 @@ define(function(require){
                 $('.chips_1>.light').height(0);
                 
                 setTimeout(function(){
+                    move('.chips_1').set('opacity', .2).duration('.2s').end();
                     move('.chips_2').translate(0, -64).duration('.8s').end(function(){
-                    	move('.chips_1').set('opacity', .2).duration('.2s').end();
                         move('.chips_2>.light').set('height', '109px').duration('.2s').end(function(){
                             $('.feature_3').show();
                             $('.feature_3 p').removeClass('end');
@@ -285,7 +284,7 @@ define(function(require){
                 $('.feature_1 p').removeClass('end');
                 $('.feature_1').hide();
                 delayRun(function(){
-                    move('.chips').scale(1.2, 1.2).translate(0, 92).duration('1s').end(function(){
+                    //move('.chips').scale(1.2, 1.2).translate(0, 92).duration('1s').end(function(){
                         $('.tablet_top, .tablet_bottom').show();
                         setTimeout(function(){
                             move('.tablet_top')
@@ -297,23 +296,28 @@ define(function(require){
                                     $('.tablet_top').css('backgroundImage', '');
                                 });
                             move('.chips').scale(.29,.29).translate(0, 0).duration('1s').end(function(){
-                                move('.screen').set('opacity', 1).duration('.5').end(function(){
-                                    move('.screen').set('opacity', 0).duration('.5s').end(function(){
-                                        move('.screen').set('opacity', 1).duration('.5s').end(function(){
-                                            $('.chips').hide();
-                                            setTimeout(function(){
-                                                move('.tablet_top').translate(0, 0).duration('1s').end();
-                                            }, delay);
-                                            move('.tablet_bottom').translate(0, 0).duration('1s').end(function(){
-                                                isAnimating = false;
+                                move('.chips').set('opacity', 0).duration('.5s').end(function(){
+                                    move('.chips').set('opacity', 1).duration('.5s').end(function(){
+                                        move('.chips').set('opacity', 0).duration('.5s').end(function(){
+                                            move('.chips').set('opacity', 1).duration('.5s').end(function(){
+                                                move('.screen').set('opacity', 1).duration('.5').end(function(){
+                                                    $('.chips').hide();
+                                                    setTimeout(function(){
+                                                        move('.tablet_top').translate(0, 0).duration('1s').end();
+                                                    }, delay);
+                                                    move('.tablet_bottom').translate(0, 0).duration('1s').end(function(){
+                                                        isAnimating = false;
+                                                    });
+                                                    $('.arrow').attr('class', 'arrow upper');
+                                                });
                                             });
-                                            $('.arrow').attr('class', 'arrow upper');
                                         });
-                                    })
+                                    });
                                 });
+
                             });
                         }, delay);
-                    });
+                    //});
                 });
 				break;
 			case 1:
@@ -338,7 +342,7 @@ define(function(require){
 				break;
 			case 2:
                 $('.feature_3').hide();
-                move('.chips_2>.light').set('height', 0).duration('.2s').end();
+                $('.chips_2>.light').height(0);
                 move('.chips_2').translate(0, 0).duration('.8s').end(function(){
                     $('.chips_2_box').hide();
                     move('.chips_1').set('opacity', 1).duration('.2s').end(function(){
@@ -358,7 +362,8 @@ define(function(require){
 				break;
 			case 3:
                 $('.feature_4').hide();
-                move('.chips_3>.light').set('height', 0).duration('.2s').end();
+                //move('.chips_3>.light').set('height', 0).duration('.2s').end();
+                $('.chips_3>.light').height(0);
                 move('.chips_4_box').translate(0, 0).duration('.8s').end(function(){
                     $('.chips_3_box').hide();
                     move('.chips_2').set('opacity', 1).duration('.2s').end(function(){
