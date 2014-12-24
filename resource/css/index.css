@@ -111,6 +111,16 @@ body {
 .mc_container header.page {
   height: 134px;
   background: url(../images/title.png);
+  position: relative;
+}
+.mc_container header.page .logo {
+  width: 68px;
+  height: 90px;
+  background: url(../images/logo.png);
+  position: absolute;
+  right: 78px;
+  top: 52px;
+  -webkit-transform: scale3d(1.2, 1.2, 1);
 }
 .mc_container section.load {
   position: relative;
@@ -184,20 +194,20 @@ body {
     */
 }
 .mc_container section.scene_1 .arrow {
-  width: 22px;
-  height: 44px;
+  width: 35px;
+  height: 118px;
   background: url(../images/arrow.png);
   position: absolute;
-  right: 80px;
+  right: 20px;
   bottom: 25px;
   display: none;
 }
 .mc_container section.scene_1 .arrow.upper {
-  height: 22px;
+  height: 59px;
   background-position: center top;
 }
 .mc_container section.scene_1 .arrow.bottom {
-  height: 22px;
+  height: 59px;
   background-position: center bottom;
 }
 .mc_container section.scene_1 .chips {
@@ -354,6 +364,7 @@ body {
 }
 .mc_container section.scene_1 .feature p {
   position: absolute;
+  opacity: 0;
   -webkit-transition: all 0.4s ease-in-out;
 }
 .mc_container section.scene_1 .feature p:nth-child(2) {
@@ -361,6 +372,9 @@ body {
 }
 .mc_container section.scene_1 .feature p:nth-child(3) {
   -webkit-transition-delay: .6s;
+}
+.mc_container section.scene_1 .feature p.end {
+  opacity: 1;
 }
 .mc_container section.scene_1 .feature_1 {
   width: 640px;

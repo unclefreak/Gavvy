@@ -37,6 +37,15 @@ body{
   header.page{
     height:134px;
     background: url(../images/title.png);
+    .rel;
+    .logo{
+      .rect(68px, 90px);
+      background: url(../images/logo.png);
+      .abs;
+      right:78px;
+      top:52px;
+      -webkit-transform: scale3d(1.2, 1.2, 1);
+    }
   }
   section.load{
     .rel;
@@ -61,18 +70,18 @@ body{
     top:50%;
     .mt(-480px);
     .arrow{
-      .rect(22px, 44px);
+      .rect(35px, 118px);
       background: url(../images/arrow.png);
       .abs;
-      right:80px;
+      right:20px;
       bottom:25px;
       .hidden;
       &.upper{
-        height:22px;
+        height:59px;
         background-position: center top;
       }
       &.bottom{
-        height: 22px;
+        height: 59px;
         background-position: center bottom;
       }
     }
@@ -267,13 +276,17 @@ body{
     .feature{
       p{
        .abs;
+        opacity: 0;
         -webkit-transition: all .4s ease-in-out;
         &:nth-child(2){
           -webkit-transition-delay:.3s;
         }
         &:nth-child(3){
           -webkit-transition-delay:.6s;
-        } 
+        }
+        &.end{
+          opacity: 1;
+        }
       }
     }
     .feature_1{
