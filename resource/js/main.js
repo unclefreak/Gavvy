@@ -120,6 +120,7 @@ define(function(require){
                                                     $('.chips').hide();
                                                     $('.chips_big_box').show();
                                                     $('.feature_1').show();
+                                                    $('.feature_1 p').removeClass('end');
                                                     setTimeout(function(){
                                                         $('.feature_1 p').addClass('end');
                                                         setTimeout(function(){
@@ -142,7 +143,7 @@ define(function(require){
 				
                 $('.chips_1_box').show();
                 setTimeout(function(){
-                    move('.chips_big').translate(0, -24).duration('.2s')
+                    move('.chips_big').translate(0, -24).duration('.2s').ease('linear')
                     .then()
                         .translate(0, 24)
                         .duration('.2s')
@@ -151,17 +152,21 @@ define(function(require){
                     .end(function(){
 
                     });
-                    move('.chips_1_box').translate(0, -120).duration('1s').end(function(){
-                        move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
-                            $('.feature_2').show();
-                            setTimeout(function(){
-                                $('.feature_2 p').addClass('end');
+                    move('.chips_1_box').translate(0, -24).duration('.2s').ease('linear').end(function(){
+                        move('.chips_1_box').translate(0, -96).duration('.8s').end(function(){
+                            move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
+                                $('.feature_2').show();
+                                $('.feature_2 p').removeClass('end');
                                 setTimeout(function(){
-                                    isAnimating = false;
-                                }, 900);
-                            }, delay);
+                                    $('.feature_2 p').addClass('end');
+                                    setTimeout(function(){
+                                        isAnimating = false;
+                                    }, 900);
+                                }, delay);
+                            });
                         });
                     });
+
                 }, delay);
 				break;
             case 3:
@@ -174,6 +179,7 @@ define(function(require){
                     	move('.chips_1').set('opacity', .2).duration('.2s').end();
                         move('.chips_2>.light').set('height', '109px').duration('.2s').end(function(){
                             $('.feature_3').show();
+                            $('.feature_3 p').removeClass('end');
                             setTimeout(function(){
                                 $('.feature_3 p').addClass('end');
                                 setTimeout(function(){
@@ -193,12 +199,13 @@ define(function(require){
             		move('.chips_4_box').translate(0, -113).duration('.8s').end(function(){
             			move('.chips_3>.light').set('height', '178px').duration('.2s').end(function(){
             				$('.feature_4').show();
-            				setTimeout(function(){
+                            $('.feature_4 p').removeClass('end');
+            				delayRun(function(){
             					$('.feature_4 p').addClass('end');
                                 setTimeout(function(){
                                     isAnimating = false;
                                 }, 900);
-            				}, delay);
+            				});
             			});
             		});
             	}, delay);
@@ -211,7 +218,8 @@ define(function(require){
             	move('.chips_4').translate(0, -81).duration('.8s').end(function(){
             		move('.chips_4>.light').set('height', '131px').duration('.2s').end(function(){
             			$('.feature_5').show();
-            			setTimeout(function(){
+                        $('.feature_5 p').removeClass('end');
+            			delayRun(function(){
             				$('.feature_5 p').addClass('end');
                             setTimeout(function(){
                                 isAnimating = false;
