@@ -21,6 +21,15 @@
     opacity: 0;
   }
 }
+
+@-webkit-keyframes rotate_infinity {
+  0%{
+    -webkit-transform:rotate(0);
+  }
+  100%{
+    -webkit-transform:rotate(360deg);
+  }
+}
 html{
   height: 100%;
 }
@@ -84,6 +93,14 @@ body{
         height: 59px;
         background-position: center bottom;
       }
+    }
+    .words_back{
+      .rect(284px, 41px);
+      background: url(../images/words_back.png);
+      .abs;
+      left:0;
+      bottom: 0;
+      .hidden;
     }
     .chips{
       .rect(287px, 70px);
@@ -350,6 +367,10 @@ body{
         .rect(121px, 190px);
         .pos(449px, 398px);
         background: url(../images/f_2_3.png);
+        .fan_box{
+          .abs;
+          .pos(88px, 112px);
+        }
         &.end{
           -webkit-transform: translate3d(0, -190px, 0);
         }
@@ -453,6 +474,28 @@ body{
         &.end{
           -webkit-transform: translate3d(0, -150px, 0);
         }
+      }
+
+    }
+    .fan_box{
+      .rect(31px);
+      .inline-block;
+      .fan{
+        .rect(31px);
+        background: url(../images/fan.png);
+        .abs;
+        .pos(0,0);
+        .inline-block;
+        &.loop{
+          -webkit-animation: rotate_infinity 2s linear infinite;
+        }
+      }
+      .fan_forbid{
+        .rect(31px);
+        .inline-block;
+        background: url(../images/fan_forbid.png);
+        .abs;
+        .pos(0,0);
       }
     }
     .tablet_top{

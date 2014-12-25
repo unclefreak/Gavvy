@@ -94,6 +94,14 @@ img {
     opacity: 0;
   }
 }
+@-webkit-keyframes rotate_infinity {
+  0% {
+    -webkit-transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 html {
   height: 100%;
 }
@@ -209,6 +217,15 @@ body {
 .mc_container section.scene_1 .arrow.bottom {
   height: 59px;
   background-position: center bottom;
+}
+.mc_container section.scene_1 .words_back {
+  width: 284px;
+  height: 41px;
+  background: url(../images/words_back.png);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: none;
 }
 .mc_container section.scene_1 .chips {
   width: 287px;
@@ -449,6 +466,11 @@ body {
   top: 398px;
   background: url(../images/f_2_3.png);
 }
+.mc_container section.scene_1 .feature_2 .f3 .fan_box {
+  position: absolute;
+  left: 88px;
+  top: 112px;
+}
 .mc_container section.scene_1 .feature_2 .f3.end {
   -webkit-transform: translate3d(0, -190px, 0);
 }
@@ -566,6 +588,32 @@ body {
 }
 .mc_container section.scene_1 .feature_5 .f3.end {
   -webkit-transform: translate3d(0, -150px, 0);
+}
+.mc_container section.scene_1 .fan_box {
+  width: 31px;
+  height: 31px;
+  display: inline-block;
+}
+.mc_container section.scene_1 .fan_box .fan {
+  width: 31px;
+  height: 31px;
+  background: url(../images/fan.png);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+}
+.mc_container section.scene_1 .fan_box .fan.loop {
+  -webkit-animation: rotate_infinity 2s linear infinite;
+}
+.mc_container section.scene_1 .fan_box .fan_forbid {
+  width: 31px;
+  height: 31px;
+  display: inline-block;
+  background: url(../images/fan_forbid.png);
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .mc_container section.scene_1 .tablet_top {
   width: 510px;

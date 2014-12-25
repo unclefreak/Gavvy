@@ -145,14 +145,14 @@ define(function(require){
                     move('.chips_big').translate(0, -24).duration('.2s').ease('linear')
                     .then()
                         .translate(0, 24)
-                        .duration('.2s')
+                        .duration('.05s')
                         .set('opacity', 0.2)
                         .pop()
                     .end(function(){
 
                     });
                     move('.chips_1_box').translate(0, -24).duration('.2s').ease('linear').end(function(){
-                        move('.chips_1_box').translate(0, -96).duration('.8s').end(function(){
+                        move('.chips_1_box').translate(0, -96).duration('.5s').ease('linear').end(function(){
                             move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
                                 $('.feature_2').show();
                                 $('.feature_2 p').removeClass('end');
@@ -160,6 +160,7 @@ define(function(require){
                                     $('.feature_2 p').addClass('end');
                                     setTimeout(function(){
                                         isAnimating = false;
+                                        $('.fan_box .fan').addClass('loop');
                                     }, 900);
                                 }, delay);
                             });
@@ -222,6 +223,7 @@ define(function(require){
             				$('.feature_5 p').addClass('end');
                             setTimeout(function(){
                                 isAnimating = false;
+                                $('.words_back').show();
                             }, 900);
             			});
             		})
@@ -322,9 +324,10 @@ define(function(require){
 				break;
 			case 1:
                 $('.feature_2').hide();
+                $('.fan_box .fan').removeClass('loop');
                 $('.feature_2 p').removeClass('end');
                 $('.chips_1>.light').height(0);
-                move('.chips_1_box').translate(0, 0).duration('1s').end(function(){
+                move('.chips_1_box').translate(0, 0).duration('.8s').end(function(){
                     move('.chips_big').set('opacity', 1).duration('.2s').end(function(){
                         $('.chips_1_box').hide();
                         $('.chips_big').removeClass('split');
@@ -352,6 +355,7 @@ define(function(require){
                             $('.feature_2 p').addClass('end');
                             setTimeout(function () {
                                 isAnimating = false;
+                                $('.fan_box .fan').addClass('loop');
                             }, 900);
                         });
                         move('.chips_1>.light').set('height', '189px').duration('.2s').end(function(){
@@ -382,6 +386,7 @@ define(function(require){
 				break;
 			case 4:
 				$('.arrow').show().attr('class', 'arrow');
+                $('.words_back').hide();
 				$('.feature_5').hide();
 				$('.chips_4>.light').height(0);
 				move('.chips_4').translate(0, 0).duration('.8s').end(function(){
